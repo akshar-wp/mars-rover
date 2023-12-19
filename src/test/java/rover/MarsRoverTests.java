@@ -78,4 +78,17 @@ public class MarsRoverTests {
         );
     }
 
+    @Test
+    public void roverGetsDodgyInstructions() {
+
+        assertThrows(UnknownCommandException.class, () ->
+                externalFunc()
+        );
+    }
+
+    public void externalFunc() {
+        Rover braveRover = new Rover();
+        braveRover.addToPlateau(plateau, 3, 3, 'E');
+        List<Command> braveRoverCommands = InputUtil.parseCommands("ZMRMMRMRRM");
+    }
 }
