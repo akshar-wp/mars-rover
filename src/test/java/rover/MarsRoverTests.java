@@ -49,5 +49,33 @@ public class MarsRoverTests {
                 .isEqualTo(expectedMovingRover2);
     }
 
+    @Test
+    public void addRoverToAnotherRover() {
+        Rover outOfBoundsRover = new Rover();
+        outOfBoundsRover.addToPlateau(plateau, 3, 3, 'E');
+        Rover duplicateRover = new Rover();
+        assertThrows(RuntimeException.class, () ->
+                duplicateRover.addToPlateau(plateau, 3, 3, 'E')
+        );
+    }
+
+    @Test
+    public void startingCoordinatesAreOutOfBounds() {
+        Rover outOfBoundsRover = new Rover();
+        assertThrows(InvalidArgumentException.class, () ->
+                outOfBoundsRover.addToPlateau(plateau, 10, 10, 'E')
+        );
+    }
+
+    @Test
+    public void roverMovedOutOfBoundsDuringPlateauTraversal() {
+        Rover braveRover = new Rover();
+        braveRover.addToPlateau(plateau, 3, 3, 'E');
+        List<Command> braveRoverCommands = InputUtil.parseCommands("MMRMMRMRRMMMMMMMMMMM");
+
+        assertThrows(InvalidCommandException.class, () ->
+                braveRover.executeCommands(braveRoverCommands)
+        );
+    }
 
 }
