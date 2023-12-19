@@ -1,6 +1,13 @@
 package rover;
 
 import org.junit.jupiter.api.Test;
+import rover.command.Command;
+import rover.exception.InvalidArgumentException;
+import rover.exception.InvalidCommandException;
+import rover.exception.UnknownCommandException;
+import rover.util.InputUtil;
+import rover.util.Orientation;
+import rover.util.Position;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -51,11 +58,11 @@ public class MarsRoverTests {
 
     @Test
     public void addRoverToAnotherRover() {
-        Rover outOfBoundsRover = new Rover();
-        outOfBoundsRover.addToPlateau(plateau, 3, 3, 'E');
-        Rover duplicateRover = new Rover();
+        Rover initialRover = new Rover();
+        initialRover.addToPlateau(plateau, 3, 3, 'E');
+        Rover secondRover = new Rover();
         assertThrows(RuntimeException.class, () ->
-                duplicateRover.addToPlateau(plateau, 3, 3, 'E')
+                secondRover.addToPlateau(plateau, 3, 3, 'E')
         );
     }
 
@@ -69,26 +76,26 @@ public class MarsRoverTests {
 
     @Test
     public void roverMovedOutOfBoundsDuringPlateauTraversal() {
-        Rover braveRover = new Rover();
-        braveRover.addToPlateau(plateau, 3, 3, 'E');
+        Rover badRover = new Rover();
+        badRover.addToPlateau(plateau, 3, 3, 'E');
         List<Command> braveRoverCommands = InputUtil.parseCommands("MMRMMRMRRMMMMMMMMMMM");
 
         assertThrows(InvalidCommandException.class, () ->
-                braveRover.executeCommands(braveRoverCommands)
+                badRover.executeCommands(braveRoverCommands)
         );
     }
 
     @Test
-    public void roverGetsDodgyInstructions() {
+    public void roverReceivesUnknownInstructions() {
 
         assertThrows(UnknownCommandException.class, () ->
-                externalFunc()
+                processUnknownInstructions()
         );
     }
 
-    public void externalFunc() {
-        Rover braveRover = new Rover();
-        braveRover.addToPlateau(plateau, 3, 3, 'E');
+    public void processUnknownInstructions() {
+        Rover confusedRover = new Rover();
+        confusedRover.addToPlateau(plateau, 3, 3, 'E');
         List<Command> braveRoverCommands = InputUtil.parseCommands("ZMRMMRMRRM");
     }
 }
