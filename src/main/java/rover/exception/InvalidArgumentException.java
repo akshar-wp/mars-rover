@@ -1,4 +1,4 @@
-package rover;
+package rover.exception;
 
 public class InvalidArgumentException extends RuntimeException {
     public InvalidArgumentException(String message) {

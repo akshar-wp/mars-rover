@@ -1,5 +1,7 @@
 package rover;
 
+import rover.util.Position;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

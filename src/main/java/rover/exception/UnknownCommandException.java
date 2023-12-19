@@ -1,4 +1,4 @@
-package rover;
+package rover.exception;
 
 public class UnknownCommandException extends RuntimeException {
 

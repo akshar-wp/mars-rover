@@ -1,4 +1,4 @@
-package rover;
+package rover.util;
 
 public enum Orientation {
     NORTH('N'),

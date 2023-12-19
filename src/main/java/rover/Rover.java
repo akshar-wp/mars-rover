@@ -1,5 +1,11 @@
 package rover;
 
+import rover.command.Command;
+import rover.exception.InvalidArgumentException;
+import rover.exception.InvalidCommandException;
+import rover.util.Orientation;
+import rover.util.Position;
+
 import java.util.List;
 import java.util.Objects;
 

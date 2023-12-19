@@ -1,4 +1,4 @@
-package rover;
+package rover.exception;
 
 public class InvalidCommandException extends RuntimeException {
 

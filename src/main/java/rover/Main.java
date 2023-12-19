@@ -1,5 +1,8 @@
 package rover;
 
+import rover.command.Command;
+import rover.util.InputUtil;
+
 import java.util.List;
 
 public class Main {

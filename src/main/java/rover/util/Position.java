@@ -1,4 +1,6 @@
-package rover;
+package rover.util;
+
+import rover.Plateau;
 
 public class Position {
 

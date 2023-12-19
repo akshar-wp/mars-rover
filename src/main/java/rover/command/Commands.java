@@ -1,4 +1,6 @@
-package rover;
+package rover.command;
+
+import rover.exception.UnknownCommandException;
 
 import java.util.ArrayList;
 import java.util.List;

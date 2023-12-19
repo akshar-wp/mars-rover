@@ -1,4 +1,10 @@
-package rover;
+package rover.util;
+
+import rover.Plateau;
+import rover.Rover;
+import rover.command.Command;
+import rover.command.Commands;
+import rover.exception.InvalidArgumentException;
 
 import java.util.List;
 
