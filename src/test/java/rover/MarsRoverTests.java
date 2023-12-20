@@ -78,10 +78,10 @@ public class MarsRoverTests {
     public void roverMovedOutOfBoundsDuringPlateauTraversal() {
         Rover badRover = new Rover();
         badRover.addToPlateau(plateau, 3, 3, 'E');
-        List<Command> braveRoverCommands = InputUtil.parseCommands("MMRMMRMRRMMMMMMMMMMM");
+        List<Command> badRoverCommands = InputUtil.parseCommands("MMRMMRMRRMMMMMMMMMMM");
 
         assertThrows(InvalidCommandException.class, () ->
-                badRover.executeCommands(braveRoverCommands)
+                badRover.executeCommands(badRoverCommands)
         );
     }
 
@@ -96,6 +96,6 @@ public class MarsRoverTests {
     public void processUnknownInstructions() {
         Rover confusedRover = new Rover();
         confusedRover.addToPlateau(plateau, 3, 3, 'E');
-        List<Command> braveRoverCommands = InputUtil.parseCommands("ZMRMMRMRRM");
+        List<Command> confusedRoverCommands = InputUtil.parseCommands("ZMRMMRMRRM");
     }
 }
