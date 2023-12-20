@@ -17,16 +17,11 @@ public class Main {
         InputUtil.parseRoverToPlateau(plateau, rover2, "3 3 E");
         List<Command> commands2 = InputUtil.parseCommands("MMRMMRMRRM");
 
-//        Rover rover3 = InputUtil.createRover();
-//        InputUtil.parseRoverToPlateau(plateau, rover3, "6 3 E");
-//        List<Command> commands3 = InputUtil.parseCommands("MMRMMRMRRM");
-
         rover1.executeCommands(commands1);
         rover2.executeCommands(commands2);
-//        rover3.executeCommands(commands3);
 
         System.out.println(rover1);
         System.out.println(rover2);
-//        System.out.println(rover3);
+
     }
 }
